@@ -1,0 +1,18 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: uname -a
+      - run: cat /proc/cmdline
+      - run: cut -d ' ' -f 1 /proc/modules | sort -u
+      - run: ls -l --time-style=+"" /dev
+      - run: sort /proc/mounts
+      - run: sudo capsh --print
+
